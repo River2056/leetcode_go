@@ -1,6 +1,7 @@
 package merge_two_sorted_lists
 
 import (
+	"fmt"
 	l "leetcode_go/add_two_numbers"
 )
 
@@ -19,11 +20,26 @@ func GetDummyData() (*l.ListNode, *l.ListNode) {
 	return &l1, &l11
 }
 
-//func getLinkListValuesIntoSlice(l1 *l.ListNode, arr []int) []int {
-//
-//}
+func getLinkListValuesIntoSlice(l1 *l.ListNode, arr []int) []int {
+	current := l1
+	for current != nil {
+		arr = append(arr, current.Val)
+		current = current.Next
+	}
+	return arr
+}
 
-//func MergeTwoLists(l1 *l.ListNode, l2 *l.ListNode) *l.ListNode {
-//	var nums []int = make([]int, 0)
-//
-//}
+func MergeTwoLists(l1 *l.ListNode, l2 *l.ListNode) *l.ListNode {
+	var nums []int = make([]int, 0)
+	nums = getLinkListValuesIntoSlice(l1, nums)
+	nums = getLinkListValuesIntoSlice(l2, nums)
+	for i := 0; i < len(nums); i++ {
+		for j := i + 1; j < len(nums); j++ {
+			if nums[i] < nums[j] {
+
+			}
+		}
+	}
+	fmt.Println(nums)
+	return nil
+}
